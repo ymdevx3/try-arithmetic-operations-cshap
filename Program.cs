@@ -78,7 +78,7 @@ namespace try_arithmetic_operations_cshap
             {
                 try
                 {
-                    var result = Calculator.calculate(expression);
+                    var result = Calculator.Calculate(expression);
                     Console.WriteLine($"    ->  {result}");
                 }
                 catch (Exception ex)
@@ -93,7 +93,7 @@ namespace try_arithmetic_operations_cshap
     {
         private static readonly ReadOnlyCollection<char> operators = new List<char>() { '+', '-', '*', '/' }.AsReadOnly();
 
-        public static double calculate(string expression)
+        public static double Calculate(string expression)
         {
             double returnValue = 0;
 
