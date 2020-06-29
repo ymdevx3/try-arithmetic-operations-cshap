@@ -1,4 +1,4 @@
-# try-arithmetic-operations-cshap
+# try-arithmetic-operations-csharp
 四則演算 (C#)
 
 ### 環境
