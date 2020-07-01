@@ -35,8 +35,7 @@ namespace TryArithmeticOperations
             // 数値以外が混じっていないか
             foreach (var value in values)
             {
-                int num;
-                if (!int.TryParse(value, out num)) throw new Exception($"数値以外[{value}]が含まれています");
+                if (!double.TryParse(value, out double num)) throw new Exception($"数値以外[{value}]が含まれています");
             }
 
             // Console.WriteLine($"    -> Values[{string.Join(" ", values)}] Operators[{string.Join(" ", targetOperators)}]");
