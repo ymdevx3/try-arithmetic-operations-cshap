@@ -23,16 +23,14 @@ namespace TryArithmeticOperations
             // ※一回ずつ計算して要素リストを書き換えることを繰り返す
             var isContinue = true;
             var newElements = new List<string>(elements);
-            while (isContinue)
+            while (newElements.Any(x => x = "*" || x = "/"))
             {
-                var result = CalcMultiOrDiv(newElements);
-                newElements = result.Item1;
-                isContinue = result.Item2;
+                newElements = CalcMultiOrDiv(newElements);
                 // Console.WriteLine($"    -> {string.Join(",", newElements)}");
             }
 
             // newElementsは加算、減算のみなので先頭から計算
-            double result2 = 0;
+            double result = 0;
             string op = "";
             foreach (var element in newElements)
             {
@@ -44,20 +42,20 @@ namespace TryArithmeticOperations
                 {
                     if (op == "+")
                     {
-                        result2 = result2 + double.Parse(element);
+                        result = result + double.Parse(element);
                     }
                     else if (op == "-")
                     {
-                        result2 = result2 - double.Parse(element);
+                        result = result - double.Parse(element);
                     }
                     else
                     {
-                        result2 = double.Parse(element);
+                        result = double.Parse(element);
                     }
                 }
             }
 
-            return result2;
+            return result;
         }
 
         /// <summary>
@@ -66,8 +64,8 @@ namespace TryArithmeticOperations
         /// ※ [*] or [/] がなくなるまで呼び出し元で繰り返しコールする
         /// </summary>
         /// <param name="elements">要素のリスト</param>
-        /// <returns>乗算または商算の結果に置き換えた要素のリストと、呼び出し元で本メソッドを続けるかどうか</returns>
-        private static Tuple<List<string>, bool> CalcMultiOrDiv(List<string> elements)
+        /// <returns>乗算または商算の結果に置き換えた要素のリスト</returns>
+        private static List<string> CalcMultiOrDiv(List<string> elements)
         {
             var newElements = new List<string>();
 
@@ -88,10 +86,10 @@ namespace TryArithmeticOperations
                     // [*] or [/] より二つ後ろがまだあれば最後にリストにつっこむ
                     if (i + 2 < elements.Count()) newElements.AddRange(elements.Skip(i + 2).Take(elements.Count() - i + 1));
                     
-                    return new Tuple<List<string>, bool>(newElements, true); 
+                    return newElements; 
                 }
             }
-            return new Tuple<List<string>, bool>(elements, false);
+            return elements;
         }
     }
 }
