@@ -70,6 +70,7 @@ namespace TryArithmeticOperations
                 "12+ -3",
                 "1 + 2 / 0 * 0",
                 "1 + a",
+                "1.5 + 2.2"
             };
 
             foreach (var expression in expressions)
@@ -77,6 +78,19 @@ namespace TryArithmeticOperations
                 try
                 {
                     var result = Calculator.Calculate(expression);
+                    Console.WriteLine($"    ->  {result}");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"    ->  [Error] {ex.Message}");
+                }
+            }
+
+            foreach (var expression in expressions)
+            {
+                try
+                {
+                    var result = Calculator2.Calculate(expression);
                     Console.WriteLine($"    ->  {result}");
                 }
                 catch (Exception ex)
