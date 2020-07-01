@@ -1,5 +1,5 @@
 # try-arithmetic-operations-csharp
-四則演算 (C#)
+[C#] 四則演算 (数値, +, -, *, / のみの演算)
 
 ### 環境
 - vscode 1.46.1
