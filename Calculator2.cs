@@ -21,9 +21,8 @@ namespace TryArithmeticOperations
 
             // 要素から [*] or [/] を見つけて先に計算
             // ※一回ずつ計算して要素リストを書き換えることを繰り返す
-            var isContinue = true;
             var newElements = new List<string>(elements);
-            while (newElements.Any(x => x = "*" || x = "/"))
+            while (newElements.Any(x => x == "*" || x == "/"))
             {
                 newElements = CalcMultiOrDiv(newElements);
                 // Console.WriteLine($"    -> {string.Join(",", newElements)}");
