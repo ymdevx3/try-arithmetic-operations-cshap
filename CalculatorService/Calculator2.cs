@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace TryArithmeticOperations
+namespace CalculatorService
 {
     public class Calculator2
     {
@@ -80,6 +79,7 @@ namespace TryArithmeticOperations
                     }
                     else if (elements[i] == "/")
                     {
+                        if (double.Parse(elements[i+1]) == 0) throw new Exception("0で割ることはできません。");
                         newElements.Add((double.Parse(elements[i-1]) / double.Parse(elements[i+1])).ToString());
                     }
                     // [*] or [/] より二つ後ろがまだあれば最後にリストにつっこむ

@@ -1,9 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <ItemGroup>
+    <ProjectReference Include="..\CalculatorService\CalculatorService.csproj" />
+  </ItemGroup>
+
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>try_arithmetic_operations_cshap</RootNamespace>
+    <RootNamespace>TryArithmeticOperations</RootNamespace>
   </PropertyGroup>
 
 </Project>
